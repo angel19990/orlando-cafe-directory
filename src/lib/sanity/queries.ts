@@ -30,6 +30,7 @@ export const cafeBySlugQuery = groq`
     slug,
     description,
     coverImage,
+    favoriteDrinks,
     gallery,
     area,
     address,

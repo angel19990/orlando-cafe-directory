@@ -133,10 +133,34 @@ export const cafe = defineType({
       ],
     }),
     defineField({
+      name: "favoriteDrinks",
+      title: "Our Favorite Drinks",
+      type: "array",
+      group: "basic",
+      description:
+        "Upload photos of your favorite drinks. The alt text will be shown as the drink name beneath each photo.",
+      of: [
+        {
+          type: "image",
+          options: { hotspot: true },
+          fields: [
+            defineField({
+              name: "alt",
+              title: "Drink Name",
+              type: "string",
+              description: 'e.g. "Oat Milk Matcha"',
+              validation: (rule) => rule.required(),
+            }),
+          ],
+        },
+      ],
+    }),
+    defineField({
       name: "gallery",
       title: "Gallery",
       type: "array",
       group: "basic",
+      description: "General photos of the cafe — interior, exterior, food, etc.",
       of: [
         {
           type: "image",

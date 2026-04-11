@@ -54,6 +54,7 @@ export type CafeCard = {
 };
 
 export type CafeDetail = CafeCard & {
+  favoriteDrinks?: SanityImage[];
   gallery?: SanityImage[];
   address?: string;
   googleMapsLink?: string;

@@ -2,20 +2,9 @@ import Image from "next/image";
 import { urlFor } from "@/lib/sanity/image";
 import type { CafeDetail } from "@/lib/types";
 
-const FALLBACK_LABELS = [
-  "House Special",
-  "Signature Drink",
-  "Fan Favorite",
-  "Barista Pick",
-  "Seasonal Blend",
-];
-
 export function DrinksRow({ cafe }: { cafe: CafeDetail }) {
-  // Skip the first gallery image (used by vibe section)
-  const images = cafe.gallery?.slice(1) ?? [];
-  if (images.length < 2) return null;
-
-  const specialties = cafe.specialties ?? [];
+  const drinks = cafe.favoriteDrinks ?? [];
+  if (drinks.length === 0) return null;
 
   return (
     <section className="mx-auto max-w-[1280px] px-6 py-12 md:px-20">
@@ -24,10 +13,8 @@ export function DrinksRow({ cafe }: { cafe: CafeDetail }) {
       </h2>
 
       <div className="flex gap-6 overflow-x-auto pb-4 scrollbar-none">
-        {images.slice(0, 5).map((img, i) => {
-          const label =
-            specialties[i] ??
-            FALLBACK_LABELS[i % FALLBACK_LABELS.length];
+        {drinks.slice(0, 5).map((drink, i) => {
+          const label = drink.alt || "Favorite Drink";
           const rotation =
             i % 2 === 0 ? "rotate-[1deg]" : "-rotate-[0.5deg]";
 
@@ -37,10 +24,10 @@ export function DrinksRow({ cafe }: { cafe: CafeDetail }) {
               className={`flex-none rounded-2xl bg-white p-3 pb-4 shadow-sm ${rotation}`}
             >
               <div className="relative aspect-square w-52 overflow-hidden rounded-xl bg-[#FCEEE3]">
-                {img.asset && (
+                {drink.asset && (
                   <Image
-                    src={urlFor(img).width(400).height(400).url()}
-                    alt={img.alt || `${cafe.name} — ${label}`}
+                    src={urlFor(drink).width(400).height(400).url()}
+                    alt={label}
                     fill
                     className="object-cover"
                     sizes="208px"
