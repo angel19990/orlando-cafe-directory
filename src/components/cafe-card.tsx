@@ -1,13 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import { MapPin, Star, Wifi, Volume2, BookOpen } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
+import { Star } from "lucide-react";
 import { urlFor } from "@/lib/sanity/image";
 import { AREA_LABELS } from "@/lib/types";
 import type { CafeCard as CafeCardType } from "@/lib/types";
 
-const VIBE_LABELS: Record<string, string> = {
+const TAG_LABELS: Record<string, string> = {
   boho: "Boho",
   vintage: "Vintage",
   dark: "Dark",
@@ -17,14 +15,37 @@ const VIBE_LABELS: Record<string, string> = {
   bright: "Bright",
   industrial: "Industrial",
   other: "Other",
+  coffee: "Specialty",
+  matcha: "Matcha",
+  tea: "Tea",
+  pastries: "Pastries",
+  brunch: "Brunch",
 };
 
 export function CafeCard({ cafe }: { cafe: CafeCardType }) {
+  // Build tags from vibes, specialties, and attributes
+  const tags: string[] = [];
+  if (cafe.studyFriendly === "yes") tags.push("Study-Friendly");
+  if (cafe.lateNightFriendly && cafe.lateNightFriendly !== "no")
+    tags.push("Late Night");
+  if (cafe.specialties) {
+    for (const s of cafe.specialties) {
+      if (TAG_LABELS[s]) tags.push(TAG_LABELS[s]);
+    }
+  }
+  if (cafe.vibe) {
+    for (const v of cafe.vibe) {
+      if (TAG_LABELS[v]) tags.push(TAG_LABELS[v]);
+    }
+  }
+  // Deduplicate and limit to 2
+  const displayTags = [...new Set(tags)].slice(0, 2);
+
   return (
     <Link href={`/cafes/${cafe.slug.current}`} className="group block">
-      <Card className="h-full overflow-hidden transition-shadow hover:shadow-md">
+      <div className="h-full overflow-hidden rounded-2xl border-2 border-[#252525] bg-white shadow-[4px_4px_0px_0px_#000000] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none">
         {/* Cover image */}
-        <div className="relative aspect-[4/3] w-full overflow-hidden bg-muted">
+        <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5E6D8]">
           {cafe.coverImage?.asset ? (
             <Image
               src={urlFor(cafe.coverImage).width(600).height(450).url()}
@@ -34,90 +55,50 @@ export function CafeCard({ cafe }: { cafe: CafeCardType }) {
               sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             />
           ) : (
-            <div className="flex h-full items-center justify-center text-muted-foreground">
-              <span className="text-3xl">☕</span>
-            </div>
-          )}
-          {cafe.personallyVisited && (
-            <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground">
-              Visited
-            </Badge>
-          )}
-          {cafe.priceRange && (
-            <Badge
-              variant="secondary"
-              className="absolute top-2 right-2 bg-background/90 backdrop-blur-sm"
-            >
-              {cafe.priceRange}
-            </Badge>
+            <div className="flex h-full items-center justify-center text-muted-foreground" />
           )}
         </div>
 
-        <CardContent className="space-y-2">
-          {/* Name & area */}
+        {/* Content */}
+        <div className="space-y-2 px-4 py-4">
           <div>
-            <h3 className="font-semibold leading-tight text-foreground group-hover:text-primary transition-colors">
+            <h3 className="font-semibold leading-tight text-foreground">
               {cafe.name}
             </h3>
-            <p className="mt-0.5 flex items-center gap-1 text-xs text-muted-foreground">
-              <MapPin className="size-3" />
+            <p className="mt-0.5 text-xs text-muted-foreground">
               {AREA_LABELS[cafe.area] || cafe.area}
             </p>
           </div>
 
-          {/* Description */}
-          {cafe.description && (
-            <p className="line-clamp-2 text-xs text-muted-foreground leading-relaxed">
-              {cafe.description}
-            </p>
+          {/* Tags */}
+          {displayTags.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {displayTags.map((tag) => (
+                <span
+                  key={tag}
+                  className="rounded-full border border-border bg-[#FAF5F0] px-2.5 py-0.5 text-[11px] font-medium text-foreground"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
           )}
 
-          {/* Attributes row */}
-          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-muted-foreground">
-            {cafe.externalRating && (
-              <span className="flex items-center gap-0.5">
-                <Star className="size-3 fill-primary text-primary" />
-                {cafe.externalRating.toFixed(1)}
-              </span>
-            )}
-            {cafe.wifiQuality === "good" && (
-              <span className="flex items-center gap-0.5">
-                <Wifi className="size-3" />
-                Good Wi-Fi
-              </span>
-            )}
-            {cafe.noiseLevel && (
-              <span className="flex items-center gap-0.5">
-                <Volume2 className="size-3" />
-                {cafe.noiseLevel.charAt(0).toUpperCase() +
-                  cafe.noiseLevel.slice(1)}
-              </span>
-            )}
-            {cafe.studyFriendly === "yes" && (
-              <span className="flex items-center gap-0.5">
-                <BookOpen className="size-3" />
-                Study-friendly
-              </span>
-            )}
-          </div>
-
-          {/* Vibes */}
-          {cafe.vibe && cafe.vibe.length > 0 && (
-            <div className="flex flex-wrap gap-1">
-              {cafe.vibe.slice(0, 3).map((v) => (
-                <Badge key={v} variant="outline" className="text-[10px] px-1.5 py-0">
-                  {VIBE_LABELS[v] || v}
-                </Badge>
-              ))}
-              {cafe.vibe.length > 3 && (
-                <Badge variant="outline" className="text-[10px] px-1.5 py-0">
-                  +{cafe.vibe.length - 3}
-                </Badge>
+          {/* Rating */}
+          {cafe.externalRating && (
+            <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+              <Star className="size-3 fill-foreground text-foreground" />
+              <span>{cafe.externalRating.toFixed(1)}</span>
+              {cafe.externalReviewCount && (
+                <>
+                  <span>·</span>
+                  <span>{cafe.externalReviewCount} reviews</span>
+                </>
               )}
             </div>
           )}
-        </CardContent>
-      </Card>
+        </div>
+      </div>
     </Link>
   );
 }

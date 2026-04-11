@@ -1,15 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Mulish, Geist_Mono, Baloo_2 } from "next/font/google";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const mulish = Mulish({
   subsets: ["latin"],
+  variable: "--font-sans",
+});
+
+const baloo = Baloo_2({
+  subsets: ["latin"],
+  variable: "--font-heading",
 });
 
 const geistMono = Geist_Mono({
@@ -34,7 +37,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={cn("h-full", "antialiased", geistSans.variable, geistMono.variable, "font-sans", inter.variable)}
+      className={cn("h-full", "antialiased", mulish.variable, baloo.variable, geistMono.variable, "font-sans")}
     >
       <body className="min-h-full flex flex-col">
         <Navbar />

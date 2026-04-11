@@ -1,90 +1,30 @@
 import Link from "next/link";
-import { Coffee } from "lucide-react";
 
-const AREA_LINKS = [
-  { href: "/area/downtown-orlando", label: "Downtown Orlando" },
-  { href: "/area/winter-park", label: "Winter Park" },
-  { href: "/area/kissimmee", label: "Kissimmee" },
-  { href: "/area/winter-garden", label: "Winter Garden" },
-  { href: "/area/dr-phillips", label: "Dr. Phillips" },
+const FOOTER_LINKS = [
+  { href: "/about", label: "About" },
+  { href: "/blog", label: "Blog" },
+  { href: "/submit", label: "Submit" },
+  { href: "/privacy", label: "Privacy" },
 ];
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/60 bg-secondary/40">
-      <div className="mx-auto max-w-6xl px-4 py-10 sm:px-6">
-        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {/* Brand */}
-          <div className="space-y-3">
-            <Link href="/" className="flex items-center gap-2">
-              <Coffee className="size-5 text-primary" />
-              <span className="text-lg font-semibold tracking-tight">
-                OrlandoCafes
-              </span>
+    <footer className="bg-[#252525]">
+      <div className="flex items-center justify-between px-6 py-8 md:px-12">
+        <p className="text-sm text-white/60">
+          &copy; {new Date().getFullYear()} OrlandoCafes.com
+        </p>
+        <nav className="flex items-center gap-6">
+          {FOOTER_LINKS.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="text-sm text-white/60 transition-colors hover:text-white"
+            >
+              {link.label}
             </Link>
-            <p className="text-sm text-muted-foreground leading-relaxed">
-              Your guide to the best cafes in Central Florida. Personally
-              visited, honestly reviewed.
-            </p>
-          </div>
-
-          {/* Areas */}
-          <div>
-            <h3 className="mb-3 text-sm font-semibold text-foreground">
-              Browse by Area
-            </h3>
-            <ul className="space-y-1.5">
-              {AREA_LINKS.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h3 className="mb-3 text-sm font-semibold text-foreground">
-              More
-            </h3>
-            <ul className="space-y-1.5">
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/submit"
-                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-                >
-                  Submit a Cafe
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-8 border-t border-border/60 pt-6 text-center text-xs text-muted-foreground">
-          &copy; {new Date().getFullYear()} OrlandoCafes.com. All rights
-          reserved.
-        </div>
+          ))}
+        </nav>
       </div>
     </footer>
   );
