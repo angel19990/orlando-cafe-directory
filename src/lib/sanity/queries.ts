@@ -112,3 +112,19 @@ export const allCafeSlugsQuery = groq`
 export const allBlogSlugsQuery = groq`
   *[_type == "blogPost"].slug.current
 `;
+
+export const relatedCafesQuery = groq`
+  *[_type == "cafe" && area == $area && slug.current != $slug && submissionStatus == "approved"][0...3] {
+    _id,
+    name,
+    slug,
+    coverImage,
+    area,
+    externalRating,
+    externalReviewCount,
+    vibe,
+    specialties,
+    studyFriendly,
+    lateNightFriendly
+  }
+`;
