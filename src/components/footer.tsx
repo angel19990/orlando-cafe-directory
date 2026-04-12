@@ -10,7 +10,7 @@ const FOOTER_LINKS = [
 export function Footer() {
   return (
     <footer className="bg-[#252525]">
-      <div className="flex items-center justify-between px-6 py-8 md:px-12">
+      <div className="content-container flex items-center justify-between py-8">
         <p className="text-sm text-white/60">
           &copy; {new Date().getFullYear()} OrlandoCafes.com
         </p>

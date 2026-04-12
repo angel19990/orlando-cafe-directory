@@ -17,7 +17,7 @@ export default async function HomePage() {
       <section className="relative bg-[#FCEEE3] overflow-hidden" style={{ backgroundColor: "#FCEEE3" }}>
         {/* Subtle texture overlay */}
         <div className="absolute inset-0 bg-[url('/texture.jpg')] bg-repeat mix-blend-multiply" />
-        <div className="relative flex flex-col items-center px-6 py-20 md:px-12 md:py-20 text-center">
+        <div className="content-container relative flex flex-col items-center py-20 text-center">
           <span className="mb-6 inline-block rounded-full bg-[#F5D060] px-4 py-1.5 text-sm font-semibold text-foreground">
             Central Florida&apos;s cafe guide
           </span>
@@ -56,7 +56,7 @@ export default async function HomePage() {
       {/* CTA Banner */}
       <section className="relative overflow-hidden" style={{ backgroundColor: "#FCEEE3" }}>
         <div className="absolute inset-0 bg-[url('/texture.jpg')] bg-repeat mix-blend-multiply" />
-        <div className="relative flex flex-col items-center px-6 py-16 md:px-12 text-center">
+        <div className="content-container relative flex flex-col items-center py-16 text-center">
           <h2 className="text-2xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] sm:text-3xl">
             Know a great cafe we should add?
           </h2>

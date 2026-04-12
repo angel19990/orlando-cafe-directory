@@ -49,7 +49,7 @@ export function CafeDirectory({ cafes }: { cafes: CafeCardType[] }) {
       <FilterBar filters={filters} onChange={setFilters} />
 
       {/* Grid section */}
-      <div className="px-6 pt-10 pb-15 md:px-12">
+      <div className="content-container pt-10 pb-15">
         {/* Results header */}
         <div className="mb-6 flex items-center justify-between">
           <p className="text-sm text-muted-foreground">

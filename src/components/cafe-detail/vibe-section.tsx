@@ -20,7 +20,7 @@ export function VibeSection({ cafe }: { cafe: CafeDetail }) {
   const vibePhoto = cafe.gallery?.[0] ?? cafe.coverImage;
 
   return (
-    <section className="mx-auto max-w-[1280px] px-6 py-12 md:px-20">
+    <section className="content-container py-12">
       <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#B5450F]">
         The Vibe
       </h2>

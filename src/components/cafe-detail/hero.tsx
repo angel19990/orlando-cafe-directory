@@ -9,7 +9,7 @@ export function CafeHero({ cafe }: { cafe: CafeDetail }) {
   return (
     <section>
       {/* Breadcrumb */}
-      <nav className="px-6 py-4 text-sm text-muted-foreground md:px-20">
+      <nav className="content-container py-4 text-sm text-muted-foreground">
         <Link href="/" className="hover:text-foreground">
           Home
         </Link>
@@ -22,7 +22,7 @@ export function CafeHero({ cafe }: { cafe: CafeDetail }) {
       </nav>
 
       {/* Hero image */}
-      <div className="relative mx-6 overflow-hidden rounded-[20px] md:mx-20">
+      <div className="content-container relative overflow-hidden rounded-[20px]">
         <div className="relative aspect-[3/4] w-full bg-[#FCEEE3] sm:aspect-[16/7]">
           {cafe.coverImage?.asset && (
             <Image

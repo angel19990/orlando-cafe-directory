@@ -12,7 +12,7 @@ export function MoreCafes({
   if (!cafes.length) return null;
 
   return (
-    <section className="mx-auto max-w-[1280px] px-6 py-12 md:px-20">
+    <section className="content-container py-12">
       <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#B5450F]">
         More in {AREA_LABELS[area] || area}
       </h2>

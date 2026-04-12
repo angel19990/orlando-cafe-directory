@@ -26,7 +26,7 @@ export function Navbar() {
 
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[#ECECEE] bg-white">
-      <div className="flex h-[69px] items-center justify-between px-6 md:px-12">
+      <div className="content-container flex h-[69px] items-center justify-between">
         <Link href="/" className="text-lg font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]">
           OrlandoCafes.com
         </Link>

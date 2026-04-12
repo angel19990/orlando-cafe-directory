@@ -41,27 +41,29 @@ export function FilterBar({
   onChange: (filters: Filters) => void;
 }) {
   return (
-    <div className="flex items-center gap-2.5 overflow-x-auto border-b border-[#ECECEE] bg-white px-6 py-5 md:px-12">
-      {FILTER_OPTIONS.map(({ value, label }) => (
-        <button
-          key={value}
-          onClick={() =>
-            onChange({
-              ...INITIAL_FILTERS,
-              search: filters.search,
-              activeFilter: filters.activeFilter === value ? "" : value,
-            })
-          }
-          className={cn(
-            "shrink-0 cursor-pointer rounded-full border px-4 py-1.5 text-sm font-medium transition-colors",
-            filters.activeFilter === value
-              ? "border-foreground bg-foreground text-white"
-              : "border-border bg-white text-foreground hover:bg-muted"
-          )}
-        >
-          {label}
-        </button>
-      ))}
+    <div className="border-b border-[#ECECEE] bg-white">
+      <div className="content-container flex items-center gap-2.5 overflow-x-auto py-5">
+        {FILTER_OPTIONS.map(({ value, label }) => (
+          <button
+            key={value}
+            onClick={() =>
+              onChange({
+                ...INITIAL_FILTERS,
+                search: filters.search,
+                activeFilter: filters.activeFilter === value ? "" : value,
+              })
+            }
+            className={cn(
+              "shrink-0 cursor-pointer rounded-full border px-4 py-1.5 text-sm font-medium transition-colors",
+              filters.activeFilter === value
+                ? "border-foreground bg-foreground text-white"
+                : "border-border bg-white text-foreground hover:bg-muted"
+            )}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
     </div>
   );
 }
