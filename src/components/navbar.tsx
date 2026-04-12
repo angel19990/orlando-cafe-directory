@@ -26,7 +26,7 @@ export function Navbar() {
   if (pathname.startsWith("/studio")) return null;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b-4 border-[#252525] bg-white">
+    <header className="sticky top-0 z-40 w-full border-b-2 border-[#252525] bg-white">
       <div className="content-container flex h-[69px] items-center justify-between">
         <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]">
           <Image src="/img/logo.png" alt="Orlando Cafés logo" width={28} height={28} className="size-7" />
