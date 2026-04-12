@@ -11,7 +11,7 @@ export function GalleryGrid({ cafe }: { cafe: CafeDetail }) {
 
   return (
     <section className="content-container py-12">
-      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#B5450F]">
+      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#3D1A08]">
         Gallery
       </h2>
 

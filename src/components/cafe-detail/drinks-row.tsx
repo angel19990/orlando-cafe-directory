@@ -8,7 +8,7 @@ export function DrinksRow({ cafe }: { cafe: CafeDetail }) {
 
   return (
     <section className="content-container py-12">
-      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#B5450F]">
+      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#3D1A08]">
         Our Favorites
       </h2>
 
@@ -34,7 +34,7 @@ export function DrinksRow({ cafe }: { cafe: CafeDetail }) {
                   />
                 )}
               </div>
-              <p className="mt-3 text-sm font-semibold text-[#B5450F]">
+              <p className="mt-3 text-sm font-semibold text-[#3D1A08]">
                 {label}
               </p>
             </div>

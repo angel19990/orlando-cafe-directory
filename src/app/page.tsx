@@ -24,7 +24,7 @@ export default async function HomePage({
         {/* Subtle texture overlay */}
         <div className="absolute inset-0 bg-[url('/texture.jpg')] bg-repeat mix-blend-multiply" />
         <div className="content-container relative flex flex-col items-center py-20 text-center">
-          <span className="mb-6 inline-block rounded-full bg-[#F5D060] px-4 py-1.5 text-sm font-semibold text-foreground">
+          <span className="mb-6 inline-block rounded-full bg-[#B5450F] px-4 py-1.5 text-sm font-semibold text-white">
             Central Florida&apos;s cafe guide
           </span>
           <h1 className="max-w-2xl text-4xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)] sm:text-5xl">
@@ -57,7 +57,7 @@ export default async function HomePage({
           </p>
           <Link
             href="/submit"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#B5450F] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#8E3408]"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#3D1A08] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A1005]"
           >
             Submit a Cafe
             <ArrowRight className="size-4" />

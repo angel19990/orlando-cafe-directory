@@ -49,7 +49,7 @@ export function Navbar() {
           ))}
           <Link
             href="/submit"
-            className="rounded-full bg-[#B5450F] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#8E3408]"
+            className="rounded-full bg-[#3D1A08] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[#2A1005]"
           >
             Submit a Cafe
           </Link>
@@ -90,7 +90,7 @@ export function Navbar() {
               ))}
               <Link
                 href="/submit"
-                className="mt-2 rounded-full bg-[#B5450F] px-5 py-2.5 text-center text-sm font-semibold text-white"
+                className="mt-2 rounded-full bg-[#3D1A08] px-5 py-2.5 text-center text-sm font-semibold text-white"
               >
                 Submit a Cafe
               </Link>

@@ -89,7 +89,7 @@ export default function AboutPage() {
         <div className="pt-2">
           <Link
             href="/submit"
-            className="inline-flex items-center gap-2 rounded-full bg-[#B5450F] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#8E3408]"
+            className="inline-flex items-center gap-2 rounded-full bg-[#3D1A08] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2A1005]"
           >
             Submit a Cafe
             <ArrowRight className="size-4" />

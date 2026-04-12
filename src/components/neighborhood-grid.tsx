@@ -46,7 +46,7 @@ export function NeighborhoodGrid({ cafes }: { cafes: CafeCard[] }) {
                 )}
               </div>
               {/* Label bar */}
-              <div className="bg-[#B5450F] px-4 py-3">
+              <div className="bg-[#3D1A08] px-4 py-3">
                 <p className="text-sm font-semibold text-white">{label}</p>
                 <p className="text-xs text-white/70">
                   {counts[area] || 0} cafes

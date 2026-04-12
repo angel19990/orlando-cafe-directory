@@ -13,7 +13,7 @@ export function MoreCafes({
 
   return (
     <section className="content-container py-12">
-      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#B5450F]">
+      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#3D1A08]">
         More in {AREA_LABELS[area] || area}
       </h2>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
