@@ -32,7 +32,7 @@ export function NeighborhoodGrid({ cafes }: { cafes: CafeCard[] }) {
             <Link
               key={area}
               href={`/area/${area}`}
-              className="group overflow-hidden rounded-2xl border-2 border-[#252525] bg-white shadow-[4px_4px_0px_0px_#B5450F] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+              className="group overflow-hidden rounded-2xl border-2 border-[#252525] bg-white shadow-[4px_4px_0px_0px_#252525] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
             >
               <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5E6D8]">
                 {image && (
