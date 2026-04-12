@@ -11,7 +11,7 @@ export function GalleryGrid({ cafe }: { cafe: CafeDetail }) {
 
   return (
     <section className="mx-auto max-w-[1280px] px-6 py-12 md:px-20">
-      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#7B4621]">
+      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#B5450F]">
         Gallery
       </h2>
 

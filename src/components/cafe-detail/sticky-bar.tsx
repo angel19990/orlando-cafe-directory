@@ -27,7 +27,7 @@ export function StickyBar({ cafe }: { cafe: CafeDetail }) {
 
   return (
     <div
-      className={`fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-3 rounded-full bg-[#7B4621] px-6 py-3 shadow-lg transition-all duration-300 ${
+      className={`fixed bottom-4 left-1/2 z-50 flex -translate-x-1/2 items-center gap-3 rounded-full bg-[#B5450F] px-6 py-3 shadow-lg transition-all duration-300 ${
         visible
           ? "translate-y-0 opacity-100"
           : "translate-y-4 pointer-events-none opacity-0"
