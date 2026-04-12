@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -25,10 +26,11 @@ export function Navbar() {
   if (pathname.startsWith("/studio")) return null;
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-[#ECECEE] bg-white">
+    <header className="sticky top-0 z-40 w-full border-b-4 border-[#252525] bg-white">
       <div className="content-container flex h-[69px] items-center justify-between">
-        <Link href="/" className="text-lg font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]">
-          OrlandoCafes.com
+        <Link href="/" className="flex items-center gap-2 text-lg font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]">
+          <Image src="/img/logo.png" alt="Orlando Cafés logo" width={28} height={28} className="size-7" />
+          Orlando Cafés
         </Link>
 
         {/* Desktop nav */}
@@ -68,8 +70,9 @@ export function Navbar() {
           <SheetContent side="right" className="w-64">
             <SheetHeader>
               <SheetTitle>
-                <Link href="/" className="font-bold font-[family-name:var(--font-heading)]">
-                  OrlandoCafes.com
+                <Link href="/" className="flex items-center gap-2 font-bold font-[family-name:var(--font-heading)]">
+                  <Image src="/img/logo.png" alt="Orlando Cafés logo" width={24} height={24} className="size-6" />
+                  Orlando Cafés
                 </Link>
               </SheetTitle>
             </SheetHeader>
