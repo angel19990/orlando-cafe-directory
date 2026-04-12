@@ -22,8 +22,8 @@ export function CafeHero({ cafe }: { cafe: CafeDetail }) {
       </nav>
 
       {/* Hero image */}
-      <div className="content-container relative overflow-hidden rounded-[20px]">
-        <div className="relative aspect-[3/4] w-full bg-[#FCEEE3] sm:aspect-[16/7]">
+      <div className="content-container">
+        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#FCEEE3] sm:aspect-[16/7]">
           {cafe.coverImage?.asset && (
             <Image
               src={urlFor(cafe.coverImage).width(1400).height(612).url()}
