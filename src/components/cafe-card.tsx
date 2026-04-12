@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Star } from "lucide-react";
 import { urlFor } from "@/lib/sanity/image";
-import { AREA_LABELS } from "@/lib/types";
+import { NEIGHBORHOOD_LABELS } from "@/lib/types";
 import type { CafeCard as CafeCardType } from "@/lib/types";
 
 const TAG_LABELS: Record<string, string> = {
@@ -66,7 +66,7 @@ export function CafeCard({ cafe }: { cafe: CafeCardType }) {
               {cafe.name}
             </h3>
             <p className="mt-0.5 text-xs text-muted-foreground">
-              {AREA_LABELS[cafe.area] || cafe.area}
+              {cafe.neighborhood ? NEIGHBORHOOD_LABELS[cafe.neighborhood] : cafe.area}
             </p>
           </div>
 

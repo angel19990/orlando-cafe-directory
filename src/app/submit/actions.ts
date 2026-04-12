@@ -18,11 +18,12 @@ const submitCafeSchema = z.object({
     .min(2, "Cafe name must be at least 2 characters")
     .max(100),
   area: z.enum([
-    "downtown-orlando",
+    "orlando",
     "winter-park",
-    "kissimmee",
-    "winter-garden",
-    "dr-phillips",
+    "south-orlando",
+    "east-orlando",
+    "west-orlando",
+    "north-orlando",
   ]),
   address: z.string().max(200).optional(),
   yourName: z.string().min(1, "Your name is required").max(100),

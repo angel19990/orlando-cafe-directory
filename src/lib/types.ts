@@ -1,18 +1,65 @@
 import type { PortableTextBlock } from "next-sanity";
 
 export type Area =
-  | "downtown-orlando"
+  | "orlando"
   | "winter-park"
-  | "kissimmee"
-  | "winter-garden"
-  | "dr-phillips";
+  | "south-orlando"
+  | "east-orlando"
+  | "west-orlando"
+  | "north-orlando";
 
 export const AREA_LABELS: Record<Area, string> = {
-  "downtown-orlando": "Downtown Orlando",
+  orlando: "Central Orlando",
   "winter-park": "Winter Park",
-  kissimmee: "Kissimmee",
-  "winter-garden": "Winter Garden",
+  "south-orlando": "South Orlando",
+  "east-orlando": "East Orlando",
+  "west-orlando": "West Orlando",
+  "north-orlando": "North Orlando",
+};
+
+export type Neighborhood =
+  | "downtown"
+  | "mills-50"
+  | "audubon-park"
+  | "college-park"
+  | "bumby"
+  | "milk-district"
+  | "sodo"
+  | "winter-park"
+  | "baldwin-park"
+  | "dr-phillips"
+  | "kissimmee"
+  | "celebration"
+  | "lake-nona"
+  | "st-cloud"
+  | "ucf-area"
+  | "winter-garden"
+  | "clermont"
+  | "sanford"
+  | "longwood"
+  | "altamonte-springs";
+
+export const NEIGHBORHOOD_LABELS: Record<Neighborhood, string> = {
+  downtown: "Downtown",
+  "mills-50": "Mills 50",
+  "audubon-park": "Audubon Park",
+  "college-park": "College Park",
+  bumby: "Bumby",
+  "milk-district": "Milk District",
+  sodo: "SODO",
+  "winter-park": "Winter Park",
+  "baldwin-park": "Baldwin Park",
   "dr-phillips": "Dr. Phillips",
+  kissimmee: "Kissimmee",
+  celebration: "Celebration",
+  "lake-nona": "Lake Nona",
+  "st-cloud": "St. Cloud",
+  "ucf-area": "UCF Area",
+  "winter-garden": "Winter Garden",
+  clermont: "Clermont",
+  sanford: "Sanford",
+  longwood: "Longwood",
+  "altamonte-springs": "Altamonte Springs",
 };
 
 export type Vibe =
@@ -40,6 +87,7 @@ export type CafeCard = {
   description?: string;
   coverImage?: SanityImage;
   area: Area;
+  neighborhood?: Neighborhood;
   seatingSize?: "small" | "medium" | "large" | "xl";
   vibe?: Vibe[];
   noiseLevel?: "quiet" | "moderate" | "loud";

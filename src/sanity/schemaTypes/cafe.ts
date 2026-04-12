@@ -1,11 +1,35 @@
 import { defineType, defineField } from "sanity";
 
 const AREAS = [
-  { title: "Downtown Orlando", value: "downtown-orlando" },
+  { title: "Central Orlando", value: "orlando" },
   { title: "Winter Park", value: "winter-park" },
-  { title: "Kissimmee", value: "kissimmee" },
-  { title: "Winter Garden", value: "winter-garden" },
+  { title: "South Orlando", value: "south-orlando" },
+  { title: "East Orlando", value: "east-orlando" },
+  { title: "West Orlando", value: "west-orlando" },
+  { title: "North Orlando", value: "north-orlando" },
+];
+
+const NEIGHBORHOODS = [
+  { title: "Downtown", value: "downtown" },
+  { title: "Mills 50", value: "mills-50" },
+  { title: "Audubon Park", value: "audubon-park" },
+  { title: "College Park", value: "college-park" },
+  { title: "Bumby", value: "bumby" },
+  { title: "Milk District", value: "milk-district" },
+  { title: "SODO", value: "sodo" },
+  { title: "Winter Park", value: "winter-park" },
+  { title: "Baldwin Park", value: "baldwin-park" },
   { title: "Dr. Phillips", value: "dr-phillips" },
+  { title: "Kissimmee", value: "kissimmee" },
+  { title: "Celebration", value: "celebration" },
+  { title: "Lake Nona", value: "lake-nona" },
+  { title: "St. Cloud", value: "st-cloud" },
+  { title: "UCF Area", value: "ucf-area" },
+  { title: "Winter Garden", value: "winter-garden" },
+  { title: "Clermont", value: "clermont" },
+  { title: "Sanford", value: "sanford" },
+  { title: "Longwood", value: "longwood" },
+  { title: "Altamonte Springs", value: "altamonte-springs" },
 ];
 
 const SEATING_SIZES = [
@@ -184,6 +208,13 @@ export const cafe = defineType({
       group: "location",
       options: { list: AREAS },
       validation: (rule) => rule.required(),
+    }),
+    defineField({
+      name: "neighborhood",
+      title: "Neighborhood",
+      type: "string",
+      group: "location",
+      options: { list: NEIGHBORHOODS },
     }),
     defineField({
       name: "address",

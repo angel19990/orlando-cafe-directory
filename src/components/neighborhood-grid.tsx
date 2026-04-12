@@ -3,10 +3,12 @@ import type { CafeCard } from "@/lib/types";
 import type { Area } from "@/lib/types";
 
 const NEIGHBORHOODS: { area: Area; label: string }[] = [
-  { area: "downtown-orlando", label: "Downtown Orlando" },
+  { area: "orlando", label: "Central Orlando" },
   { area: "winter-park", label: "Winter Park" },
-  { area: "kissimmee", label: "Kissimmee" },
-  { area: "winter-garden", label: "Winter Garden" },
+  { area: "south-orlando", label: "South Orlando" },
+  { area: "east-orlando", label: "East Orlando" },
+  { area: "west-orlando", label: "West Orlando" },
+  { area: "north-orlando", label: "North Orlando" },
 ];
 
 export function NeighborhoodGrid({ cafes }: { cafes: CafeCard[] }) {
