@@ -288,6 +288,20 @@ export const cafe = defineType({
       group: "attributes",
       options: { list: PRICE_RANGES },
     }),
+    defineField({
+      name: "petFriendly",
+      title: "Pet Friendly",
+      type: "boolean",
+      group: "attributes",
+      initialValue: false,
+    }),
+    defineField({
+      name: "hasOutlets",
+      title: "Has Outlets",
+      type: "boolean",
+      group: "attributes",
+      initialValue: false,
+    }),
 
     // --- Content ---
     defineField({

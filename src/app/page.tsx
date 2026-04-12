@@ -1,14 +1,20 @@
 import Link from "next/link";
-import { ArrowRight, Search } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { client } from "@/lib/sanity/client";
 import { allCafesQuery } from "@/lib/sanity/queries";
 import { CafeDirectory } from "@/components/cafe-directory";
+import { HeroSearch } from "@/components/hero-search";
 import { NeighborhoodGrid } from "@/components/neighborhood-grid";
 import type { CafeCard } from "@/lib/types";
 
 export const revalidate = 60;
 
-export default async function HomePage() {
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ q?: string }>;
+}) {
+  const { q } = await searchParams;
   const cafes = await client.fetch<CafeCard[]>(allCafesQuery);
 
   return (
@@ -27,27 +33,13 @@ export default async function HomePage() {
           <p className="mt-6 max-w-xl text-base text-muted-foreground">
             Browse cafes by vibe, specialty, study-friendliness, and more.
           </p>
-          <div className="mt-8 flex w-full max-w-lg items-center rounded-full border border-border bg-white shadow-sm">
-            <input
-              type="text"
-              placeholder="Search cafes, neighborhoods..."
-              className="flex-1 rounded-l-full bg-transparent px-5 py-3 text-sm placeholder:text-muted-foreground focus:outline-none"
-              readOnly
-            />
-            <Link
-              href="#directory"
-              className="mr-1.5 flex items-center gap-2 rounded-full bg-[#252525] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#333]"
-            >
-              <Search className="size-4" />
-              Search
-            </Link>
-          </div>
+          <HeroSearch initialValue={q} />
         </div>
       </section>
 
       {/* Directory (Filters + Cafe Grid) */}
       <div id="directory">
-        <CafeDirectory cafes={cafes} />
+        <CafeDirectory cafes={cafes} initialSearch={q} />
       </div>
 
       {/* Browse by Neighborhood */}

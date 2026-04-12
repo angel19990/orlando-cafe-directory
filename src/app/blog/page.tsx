@@ -21,7 +21,7 @@ export default async function BlogPage() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
-      <h1 className="mb-2 text-3xl font-bold tracking-tight text-foreground">
+      <h1 className="mb-2 text-3xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]">
         Blog
       </h1>
       <p className="mb-8 text-base text-muted-foreground">

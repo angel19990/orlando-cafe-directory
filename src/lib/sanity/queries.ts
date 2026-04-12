@@ -19,6 +19,8 @@ export const allCafesQuery = groq`
     specialties,
     priceRange,
     personallyVisited,
+    petFriendly,
+    hasOutlets,
     externalRating,
     externalReviewCount
   }

@@ -97,6 +97,8 @@ export type CafeCard = {
   specialties?: string[];
   priceRange?: "$" | "$$" | "$$$";
   personallyVisited?: boolean;
+  petFriendly?: boolean;
+  hasOutlets?: boolean;
   externalRating?: number;
   externalReviewCount?: number;
 };

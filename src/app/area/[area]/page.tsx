@@ -51,7 +51,7 @@ export default async function AreaPage({
         All cafes
       </Link>
 
-      <h1 className="mb-2 text-3xl font-bold tracking-tight text-foreground">
+      <h1 className="mb-2 text-3xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]">
         Cafes in {label}
       </h1>
       <p className="mb-8 text-base text-muted-foreground">

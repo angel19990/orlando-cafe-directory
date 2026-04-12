@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Coffee, MapPin, Star, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowRight, Coffee, MapPin, Star, Send } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
@@ -12,11 +11,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-      <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground">
+      <h1 className="mb-6 text-3xl font-bold tracking-tight text-foreground font-[family-name:var(--font-heading)]">
         About OrlandoCafes
       </h1>
 
-      <div className="space-y-6 text-sm leading-relaxed text-muted-foreground">
+      <div className="space-y-6 text-base leading-relaxed text-muted-foreground">
         <p>
           OrlandoCafes.com is a curated directory of the best cafes across
           Central Florida — from Downtown Orlando to Winter Park, Kissimmee,
@@ -38,8 +37,8 @@ export default function AboutPage() {
                 Personally Visited
               </h3>
               <p className="mt-1 text-xs text-muted-foreground">
-                We visit every cafe before listing it. No paid placements, no
-                sponsored content.
+                We aim to visit every cafe after listing it. No paid placements,
+                no sponsored content.
               </p>
             </div>
           </div>
@@ -88,9 +87,13 @@ export default function AboutPage() {
         </p>
 
         <div className="pt-2">
-          <Button render={<Link href="/submit" />}>
+          <Link
+            href="/submit"
+            className="inline-flex items-center gap-2 rounded-full bg-[#B5450F] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#8E3408]"
+          >
             Submit a Cafe
-          </Button>
+            <ArrowRight className="size-4" />
+          </Link>
         </div>
       </div>
     </div>
