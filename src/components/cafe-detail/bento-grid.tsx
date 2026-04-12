@@ -24,9 +24,7 @@ function OurTakeCard({ cafe }: { cafe: CafeDetail }) {
   if (!hasReview) return null;
 
   return (
-    <div className="relative rounded-[20px] bg-[#FFF8F0] p-8 -rotate-[0.8deg]">
-      {/* Yellow pin dot */}
-      <div className="absolute right-6 top-4 size-3 rounded-full bg-[#F5D060]" />
+    <div className="rounded-[20px] bg-[#FFF8F0] p-8 -rotate-[0.8deg]">
       <h3 className="mb-3 text-lg font-semibold font-[family-name:var(--font-heading)] text-[#B5450F]">
         Our Take
       </h3>
