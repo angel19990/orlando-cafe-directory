@@ -1,14 +1,22 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import { FilterBar, INITIAL_FILTERS, type Filters } from "@/components/filter-bar";
 import { CafeCard } from "@/components/cafe-card";
 import type { CafeCard as CafeCardType } from "@/lib/types";
 
 const CAFES_PER_PAGE = 12;
 
-export function CafeDirectory({ cafes, initialSearch = "" }: { cafes: CafeCardType[]; initialSearch?: string }) {
-  const [filters, setFilters] = useState<Filters>({ ...INITIAL_FILTERS, search: initialSearch });
+export function CafeDirectory({ cafes }: { cafes: CafeCardType[] }) {
+  const searchParams = useSearchParams();
+  const q = searchParams.get("q") ?? "";
+  const [filters, setFilters] = useState<Filters>({ ...INITIAL_FILTERS, search: q });
+
+  useEffect(() => {
+    setFilters((prev) => ({ ...prev, search: q }));
+    setCurrentPage(1);
+  }, [q]);
   const [currentPage, setCurrentPage] = useState(1);
 
   function handleFilterChange(newFilters: Filters) {

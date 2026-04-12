@@ -39,7 +39,7 @@ export default async function HomePage({
 
       {/* Directory (Filters + Cafe Grid) */}
       <div id="directory">
-        <CafeDirectory cafes={cafes} initialSearch={q} />
+        <CafeDirectory cafes={cafes} />
       </div>
 
       {/* Browse by Neighborhood */}
