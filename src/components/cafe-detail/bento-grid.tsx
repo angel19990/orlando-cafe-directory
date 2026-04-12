@@ -21,7 +21,7 @@ const SEATING_TYPE_LABELS: Record<string, string> = {
 
 function OurTakeCard({ cafe }: { cafe: CafeDetail }) {
   const hasReview = cafe.authorReview && cafe.authorReview.length > 0;
-  if (!hasReview && !cafe.description) return null;
+  if (!hasReview) return null;
 
   return (
     <div className="relative rounded-[20px] bg-[#FFF8F0] p-8 -rotate-[0.8deg]">
@@ -30,15 +30,9 @@ function OurTakeCard({ cafe }: { cafe: CafeDetail }) {
       <h3 className="mb-3 text-lg font-semibold font-[family-name:var(--font-heading)] text-[#B5450F]">
         Our Take
       </h3>
-      {hasReview ? (
-        <div className="line-clamp-4">
-          <PortableText value={cafe.authorReview!} />
-        </div>
-      ) : (
-        <p className="line-clamp-3 text-sm text-[#252525]/80">
-          {cafe.description}
-        </p>
-      )}
+      <div className="line-clamp-4">
+        <PortableText value={cafe.authorReview!} />
+      </div>
     </div>
   );
 }
