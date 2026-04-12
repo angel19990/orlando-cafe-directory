@@ -1,14 +1,15 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { CafeCard } from "@/lib/types";
 import type { Area } from "@/lib/types";
 
-const NEIGHBORHOODS: { area: Area; label: string }[] = [
-  { area: "orlando", label: "Central Orlando" },
-  { area: "winter-park", label: "Winter Park" },
-  { area: "south-orlando", label: "South Orlando" },
-  { area: "east-orlando", label: "East Orlando" },
-  { area: "west-orlando", label: "West Orlando" },
-  { area: "north-orlando", label: "North Orlando" },
+const NEIGHBORHOODS: { area: Area; label: string; image?: string }[] = [
+  { area: "orlando", label: "Central Orlando", image: "/img/areas/central-orlando.png" },
+  { area: "winter-park", label: "Winter Park", image: "/img/areas/winter-park.png" },
+  { area: "south-orlando", label: "South Orlando", image: "/img/areas/south-orlando.png" },
+  { area: "east-orlando", label: "East Orlando", image: "/img/areas/east-orlando.png" },
+  { area: "west-orlando", label: "West Orlando", image: "/img/areas/west-orlando.png" },
+  { area: "north-orlando", label: "North Orlando", image: "/img/areas/north-orlando.png" },
 ];
 
 export function NeighborhoodGrid({ cafes }: { cafes: CafeCard[] }) {
@@ -26,14 +27,23 @@ export function NeighborhoodGrid({ cafes }: { cafes: CafeCard[] }) {
         Browse by Neighborhood
       </h2>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
-        {NEIGHBORHOODS.map(({ area, label }) => (
+        {NEIGHBORHOODS.map(({ area, label, image }) => (
           <Link
             key={area}
             href={`/area/${area}`}
             className="group overflow-hidden rounded-2xl border-2 border-[#252525] bg-white shadow-[4px_4px_0px_0px_#000000] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
           >
-            {/* Placeholder image area */}
-            <div className="aspect-[4/3] w-full bg-[#F5E6D8]" />
+            <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5E6D8]">
+              {image && (
+                <Image
+                  src={image}
+                  alt={label}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              )}
+            </div>
             {/* Label bar */}
             <div className="bg-[#3D0C11] px-4 py-3">
               <p className="text-sm font-semibold text-white">{label}</p>

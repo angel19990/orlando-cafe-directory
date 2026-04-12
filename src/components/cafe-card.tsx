@@ -5,6 +5,16 @@ import { urlFor } from "@/lib/sanity/image";
 import { NEIGHBORHOOD_LABELS } from "@/lib/types";
 import type { CafeCard as CafeCardType } from "@/lib/types";
 
+const PLACEHOLDERS = [1, 3, 4, 5, 6, 7, 8, 9];
+
+function getPlaceholderSrc(id: string): string {
+  let hash = 0;
+  for (let i = 0; i < id.length; i++) {
+    hash = (hash * 31 + id.charCodeAt(i)) >>> 0;
+  }
+  return `/img/placeholder-cafes/cover-placeholder-${PLACEHOLDERS[hash % PLACEHOLDERS.length]}.png`;
+}
+
 const TAG_LABELS: Record<string, string> = {
   boho: "Boho",
   vintage: "Vintage",
@@ -46,17 +56,13 @@ export function CafeCard({ cafe }: { cafe: CafeCardType }) {
       <div className="h-full overflow-hidden rounded-2xl border-2 border-[#252525] bg-white shadow-[4px_4px_0px_0px_#000000] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none">
         {/* Cover image */}
         <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5E6D8]">
-          {cafe.coverImage?.asset ? (
-            <Image
-              src={urlFor(cafe.coverImage).width(600).height(450).url()}
-              alt={cafe.coverImage.alt || cafe.name}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-105"
-              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            />
-          ) : (
-            <div className="flex h-full items-center justify-center text-muted-foreground" />
-          )}
+          <Image
+            src={cafe.coverImage?.asset ? urlFor(cafe.coverImage).width(600).height(450).url() : getPlaceholderSrc(cafe._id)}
+            alt={cafe.coverImage?.alt || cafe.name}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
         </div>
 
         {/* Content */}
