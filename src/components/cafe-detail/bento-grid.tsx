@@ -27,7 +27,7 @@ function OurTakeCard({ cafe }: { cafe: CafeDetail }) {
     <div className="relative rounded-[20px] bg-[#FFF8F0] p-8 -rotate-[0.8deg]">
       {/* Yellow pin dot */}
       <div className="absolute right-6 top-4 size-3 rounded-full bg-[#F5D060]" />
-      <h3 className="mb-3 text-lg font-semibold font-[family-name:var(--font-heading)] text-[#3D0C11]">
+      <h3 className="mb-3 text-lg font-semibold font-[family-name:var(--font-heading)] text-[#7B4621]">
         Our Take
       </h3>
       {hasReview ? (
@@ -60,7 +60,7 @@ function NoiseLevelCard({ cafe }: { cafe: CafeDetail }) {
         <h3 className="text-sm font-semibold uppercase tracking-wide text-[#252525]/50">
           Noise Level
         </h3>
-        <p className="mt-1 text-2xl font-bold font-[family-name:var(--font-heading)] text-[#3D0C11]">
+        <p className="mt-1 text-2xl font-bold font-[family-name:var(--font-heading)] text-[#7B4621]">
           {label}
         </p>
       </div>
@@ -71,7 +71,7 @@ function NoiseLevelCard({ cafe }: { cafe: CafeDetail }) {
             className="w-3 rounded-sm"
             style={{
               height: h,
-              backgroundColor: i < fillCount ? "#3D0C11" : "#E8DDD2",
+              backgroundColor: i < fillCount ? "#7B4621" : "#E8DDD2",
             }}
           />
         ))}
@@ -119,7 +119,7 @@ function WorkSetupCard({ cafe }: { cafe: CafeDetail }) {
           {badges.map((badge) => (
             <span
               key={badge}
-              className="rounded-lg bg-[#FCEEE3] px-3 py-1 text-sm font-medium text-[#3D0C11]"
+              className="rounded-lg bg-[#FCEEE3] px-3 py-1 text-sm font-medium text-[#7B4621]"
             >
               {badge}
             </span>
@@ -169,11 +169,11 @@ function HoursCard({ cafe }: { cafe: CafeDetail }) {
           </span>
         </div>
       </div>
-      <p className="mt-4 text-2xl font-bold font-[family-name:var(--font-heading)] text-[#3D0C11]">
+      <p className="mt-4 text-2xl font-bold font-[family-name:var(--font-heading)] text-[#7B4621]">
         {statusText}
       </p>
       {cafe.lateNightFriendly && cafe.lateNightFriendly !== "no" && (
-        <span className="mt-3 inline-flex w-fit rounded-lg bg-[#FCEEE3] px-3 py-1 text-sm font-medium text-[#3D0C11]">
+        <span className="mt-3 inline-flex w-fit rounded-lg bg-[#FCEEE3] px-3 py-1 text-sm font-medium text-[#7B4621]">
           🌙 Open Late
         </span>
       )}
@@ -198,10 +198,10 @@ function SeatingCard({ cafe }: { cafe: CafeDetail }) {
         <p className="mt-2 text-base text-[#252525]/80">{description}</p>
       </div>
       <div className="mt-4 flex flex-wrap gap-2">
-        <span className="rounded-lg bg-white px-3 py-1 text-sm font-medium text-[#3D0C11]">
+        <span className="rounded-lg bg-white px-3 py-1 text-sm font-medium text-[#7B4621]">
           {sizeLabel}
         </span>
-        <span className="rounded-lg bg-white px-3 py-1 text-sm font-medium text-[#3D0C11]">
+        <span className="rounded-lg bg-white px-3 py-1 text-sm font-medium text-[#7B4621]">
           Indoor
         </span>
       </div>
@@ -214,7 +214,7 @@ function SeatingCard({ cafe }: { cafe: CafeDetail }) {
 export function BentoGrid({ cafe }: { cafe: CafeDetail }) {
   return (
     <section className="mx-auto max-w-[1280px] px-6 py-12 md:px-20">
-      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#3D0C11]">
+      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#7B4621]">
         At a Glance
       </h2>
 

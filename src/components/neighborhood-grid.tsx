@@ -31,7 +31,7 @@ export function NeighborhoodGrid({ cafes }: { cafes: CafeCard[] }) {
           <Link
             key={area}
             href={`/area/${area}`}
-            className="group overflow-hidden rounded-2xl border-2 border-[#252525] bg-white shadow-[4px_4px_0px_0px_#000000] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
+            className="group overflow-hidden rounded-2xl border-2 border-[#252525] bg-white shadow-[4px_4px_0px_0px_#252525] transition-all hover:translate-x-1 hover:translate-y-1 hover:shadow-none"
           >
             <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#F5E6D8]">
               {image && (
@@ -45,7 +45,7 @@ export function NeighborhoodGrid({ cafes }: { cafes: CafeCard[] }) {
               )}
             </div>
             {/* Label bar */}
-            <div className="bg-[#3D0C11] px-4 py-3">
+            <div className="bg-[#7B4621] px-4 py-3">
               <p className="text-sm font-semibold text-white">{label}</p>
               <p className="text-xs text-white/70">
                 {counts[area] || 0} cafes

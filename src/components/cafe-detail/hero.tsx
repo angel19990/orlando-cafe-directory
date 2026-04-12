@@ -35,7 +35,7 @@ export function CafeHero({ cafe }: { cafe: CafeDetail }) {
             />
           )}
           {/* Gradient overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#252525]/70 via-[#252525]/20 to-transparent" />
 
           {/* Overlay content */}
           <div className="absolute bottom-0 left-0 p-8 md:p-12">

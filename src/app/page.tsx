@@ -65,7 +65,7 @@ export default async function HomePage() {
           </p>
           <Link
             href="/submit"
-            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#3D0C11] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#2a080c]"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#7B4621] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#5E3317]"
           >
             Submit a Cafe
             <ArrowRight className="size-4" />

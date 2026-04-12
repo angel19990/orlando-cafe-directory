@@ -21,7 +21,7 @@ export function VibeSection({ cafe }: { cafe: CafeDetail }) {
 
   return (
     <section className="mx-auto max-w-[1280px] px-6 py-12 md:px-20">
-      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#3D0C11]">
+      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#7B4621]">
         The Vibe
       </h2>
 
@@ -52,7 +52,7 @@ export function VibeSection({ cafe }: { cafe: CafeDetail }) {
             {cafe.vibe.map((v) => (
               <span
                 key={v}
-                className="rounded-full bg-[#FCEEE3] px-3 py-1 text-sm font-medium text-[#3D0C11]"
+                className="rounded-full bg-[#FCEEE3] px-3 py-1 text-sm font-medium text-[#7B4621]"
               >
                 {VIBE_LABELS[v] || v}
               </span>

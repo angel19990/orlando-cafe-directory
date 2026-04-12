@@ -13,7 +13,7 @@ export function MoreCafes({
 
   return (
     <section className="mx-auto max-w-[1280px] px-6 py-12 md:px-20">
-      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#3D0C11]">
+      <h2 className="mb-8 text-3xl font-bold font-[family-name:var(--font-heading)] text-[#7B4621]">
         More in {AREA_LABELS[area] || area}
       </h2>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
