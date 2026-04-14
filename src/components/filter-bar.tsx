@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 const FILTER_OPTIONS = [
   { value: "", label: "All" },
+  { value: "featured", label: "Featured" },
   { value: "coffee", label: "Coffee" },
   { value: "matcha", label: "Matcha" },
   { value: "tea", label: "Tea" },

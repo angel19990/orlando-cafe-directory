@@ -9,10 +9,9 @@ import {
 import { AREA_LABELS } from "@/lib/types";
 import type { CafeDetail, CafeCard as CafeCardType } from "@/lib/types";
 import { CafeHero } from "@/components/cafe-detail/hero";
-import { BentoGrid } from "@/components/cafe-detail/bento-grid";
-import { VibeSection } from "@/components/cafe-detail/vibe-section";
-import { DrinksRow } from "@/components/cafe-detail/drinks-row";
-import { GalleryGrid } from "@/components/cafe-detail/gallery-grid";
+import { EnvironmentSection } from "@/components/cafe-detail/environment-section";
+import { SeatingSection } from "@/components/cafe-detail/seating-section";
+import { FoodServiceSection } from "@/components/cafe-detail/food-service-section";
 import { MoreCafes } from "@/components/cafe-detail/more-cafes";
 
 export const revalidate = 60;
@@ -60,12 +59,10 @@ export default async function CafePage({
   return (
     <div>
       <CafeHero cafe={cafe} />
-      <BentoGrid cafe={cafe} />
-      <VibeSection cafe={cafe} />
-      <DrinksRow cafe={cafe} />
-      <GalleryGrid cafe={cafe} />
+      <EnvironmentSection cafe={cafe} />
+      <SeatingSection cafe={cafe} />
+      <FoodServiceSection cafe={cafe} />
       <MoreCafes cafes={relatedCafes} area={cafe.area} />
-
     </div>
   );
 }
