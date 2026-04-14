@@ -40,6 +40,8 @@ export function CafeDirectory({ cafes }: { cafes: CafeCardType[] }) {
       if (!f) return true;
 
       switch (f) {
+        case "featured":
+          return cafe.featured === true;
         case "coffee":
           return (cafe.specialties || []).includes("coffee");
         case "matcha":
@@ -53,7 +55,7 @@ export function CafeDirectory({ cafes }: { cafes: CafeCardType[] }) {
         case "wifi":
           return cafe.wifiQuality === "good";
         case "outlets":
-          return cafe.hasOutlets === true;
+          return !!cafe.outletAvailability || cafe.hasOutlets === true;
         case "latenight":
           return cafe.lateNightFriendly !== "no" && !!cafe.lateNightFriendly;
         case "pet":

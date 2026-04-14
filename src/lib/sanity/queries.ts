@@ -21,6 +21,8 @@ export const allCafesQuery = groq`
     personallyVisited,
     petFriendly,
     hasOutlets,
+    outletAvailability,
+    featured,
     externalRating,
     externalReviewCount
   }
@@ -51,9 +53,30 @@ export const cafeBySlugQuery = groq`
     authorReview,
     externalRating,
     externalReviewCount,
+    petFriendly,
+    hasOutlets,
+    outletAvailability,
     menuLink,
     instagramHandle,
-    hours
+    hours,
+    ambienceNote,
+    areaWalkable,
+    areaNote,
+    areaTags,
+    parkingAccess,
+    parkingNote,
+    indoorTableCount,
+    hasLargeTables,
+    hasOutdoorSeating,
+    outdoorTableCount,
+    outdoorHasShade,
+    outdoorHasFans,
+    foodQualityRating,
+    foodPresentationRating,
+    uniquenessRating,
+    uniqueTags,
+    specialtyNote,
+    dietaryTags
   }
 `;
 

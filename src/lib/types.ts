@@ -63,15 +63,29 @@ export const NEIGHBORHOOD_LABELS: Record<Neighborhood, string> = {
 };
 
 export type Vibe =
+  | "relaxing"
+  | "cozy"
+  | "fancy"
+  | "chic"
+  | "modern"
+  | "retro"
+  // Legacy values (kept for backward compat with existing data)
   | "boho"
   | "vintage"
   | "dark"
-  | "modern"
   | "minimal"
-  | "cozy"
   | "bright"
   | "industrial"
   | "other";
+
+export type ParkingAccess = "easy" | "medium" | "hard";
+export type AreaTag = "shopping" | "other-restaurants" | "parks";
+export type DietaryTag = "vegan-friendly" | "vegetarian-friendly" | "dairy-free";
+export type UniqueTag =
+  | "unique-menu"
+  | "house-specialties"
+  | "signature-drinks"
+  | "local-ingredients";
 
 export type SanityImage = {
   _type: "image";
@@ -99,6 +113,8 @@ export type CafeCard = {
   personallyVisited?: boolean;
   petFriendly?: boolean;
   hasOutlets?: boolean;
+  outletAvailability?: string;
+  featured?: boolean;
   externalRating?: number;
   externalReviewCount?: number;
 };
@@ -117,6 +133,27 @@ export type CafeDetail = CafeCard & {
     closeTime?: string;
     isClosed?: boolean;
   }[];
+  // Environment
+  ambienceNote?: string;
+  areaWalkable?: boolean;
+  areaNote?: string;
+  areaTags?: string[];
+  parkingAccess?: string;
+  parkingNote?: string;
+  // Seating details
+  indoorTableCount?: number;
+  hasLargeTables?: boolean;
+  hasOutdoorSeating?: boolean;
+  outdoorTableCount?: number;
+  outdoorHasShade?: boolean;
+  outdoorHasFans?: boolean;
+  // Food & Service
+  foodQualityRating?: number;
+  foodPresentationRating?: number;
+  uniquenessRating?: string;
+  uniqueTags?: string[];
+  specialtyNote?: string;
+  dietaryTags?: string[];
 };
 
 export type BlogPostCard = {

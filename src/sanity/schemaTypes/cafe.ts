@@ -40,15 +40,12 @@ const SEATING_SIZES = [
 ];
 
 const VIBES = [
-  { title: "Boho", value: "boho" },
-  { title: "Vintage", value: "vintage" },
-  { title: "Dark", value: "dark" },
-  { title: "Modern", value: "modern" },
-  { title: "Minimal", value: "minimal" },
+  { title: "Relaxing", value: "relaxing" },
   { title: "Cozy", value: "cozy" },
-  { title: "Bright", value: "bright" },
-  { title: "Industrial", value: "industrial" },
-  { title: "Other", value: "other" },
+  { title: "Fancy", value: "fancy" },
+  { title: "Chic", value: "chic" },
+  { title: "Modern", value: "modern" },
+  { title: "Retro", value: "retro" },
 ];
 
 const NOISE_LEVELS = [
@@ -90,6 +87,43 @@ const PRICE_RANGES = [
   { title: "$$$", value: "$$$" },
 ];
 
+const OUTLET_LEVELS = [
+  { title: "Limited", value: "limited" },
+  { title: "Some", value: "some" },
+  { title: "Plenty", value: "plenty" },
+];
+
+const PARKING_ACCESS = [
+  { title: "Easy", value: "easy" },
+  { title: "Medium", value: "medium" },
+  { title: "Hard", value: "hard" },
+];
+
+const UNIQUENESS_LEVELS = [
+  { title: "Low", value: "low" },
+  { title: "Medium", value: "medium" },
+  { title: "High", value: "high" },
+];
+
+const AREA_TAGS = [
+  { title: "Shopping", value: "shopping" },
+  { title: "Other Restaurants", value: "other-restaurants" },
+  { title: "Parks", value: "parks" },
+];
+
+const UNIQUE_TAGS = [
+  { title: "Unique Menu", value: "unique-menu" },
+  { title: "House Specialties", value: "house-specialties" },
+  { title: "Signature Drinks", value: "signature-drinks" },
+  { title: "Local Ingredients", value: "local-ingredients" },
+];
+
+const DIETARY_TAGS = [
+  { title: "Vegan-Friendly", value: "vegan-friendly" },
+  { title: "Vegetarian-Friendly", value: "vegetarian-friendly" },
+  { title: "Dairy-Free", value: "dairy-free" },
+];
+
 const SUBMISSION_STATUSES = [
   { title: "Pending", value: "pending" },
   { title: "Approved", value: "approved" },
@@ -113,6 +147,7 @@ export const cafe = defineType({
   groups: [
     { name: "basic", title: "Basic Info", default: true },
     { name: "location", title: "Location" },
+    { name: "environment", title: "Environment" },
     { name: "attributes", title: "Attributes" },
     { name: "content", title: "Content" },
     { name: "links", title: "Links & Extras" },
@@ -200,6 +235,14 @@ export const cafe = defineType({
       ],
     }),
 
+    defineField({
+      name: "featured",
+      title: "Featured",
+      type: "boolean",
+      group: "basic",
+      initialValue: false,
+    }),
+
     // --- Location ---
     defineField({
       name: "area",
@@ -229,6 +272,52 @@ export const cafe = defineType({
       group: "location",
     }),
 
+    // --- Environment ---
+    defineField({
+      name: "ambienceNote",
+      title: "Ambience Note",
+      type: "text",
+      group: "environment",
+      rows: 3,
+      description: "Describe the overall feeling/ambience of the cafe",
+    }),
+    defineField({
+      name: "areaWalkable",
+      title: "Area is Walkable",
+      type: "boolean",
+      group: "environment",
+      initialValue: false,
+    }),
+    defineField({
+      name: "areaNote",
+      title: "Area Note",
+      type: "text",
+      group: "environment",
+      rows: 2,
+    }),
+    defineField({
+      name: "areaTags",
+      title: "Area Tags",
+      type: "array",
+      group: "environment",
+      of: [{ type: "string" }],
+      options: { list: AREA_TAGS },
+    }),
+    defineField({
+      name: "parkingAccess",
+      title: "Parking Access",
+      type: "string",
+      group: "environment",
+      options: { list: PARKING_ACCESS },
+    }),
+    defineField({
+      name: "parkingNote",
+      title: "Parking Note",
+      type: "text",
+      group: "environment",
+      rows: 2,
+    }),
+
     // --- Attributes ---
     defineField({
       name: "seatingSize",
@@ -236,6 +325,48 @@ export const cafe = defineType({
       type: "string",
       group: "attributes",
       options: { list: SEATING_SIZES },
+    }),
+    defineField({
+      name: "indoorTableCount",
+      title: "Indoor Table Count",
+      type: "number",
+      group: "attributes",
+      validation: (rule) => rule.min(0).integer(),
+    }),
+    defineField({
+      name: "hasLargeTables",
+      title: "Has Large Tables (6-8 person)",
+      type: "boolean",
+      group: "attributes",
+      initialValue: false,
+    }),
+    defineField({
+      name: "hasOutdoorSeating",
+      title: "Has Outdoor Seating",
+      type: "boolean",
+      group: "attributes",
+      initialValue: false,
+    }),
+    defineField({
+      name: "outdoorTableCount",
+      title: "Outdoor Table Count",
+      type: "number",
+      group: "attributes",
+      validation: (rule) => rule.min(0).integer(),
+    }),
+    defineField({
+      name: "outdoorHasShade",
+      title: "Outdoor Has Shade",
+      type: "boolean",
+      group: "attributes",
+      initialValue: false,
+    }),
+    defineField({
+      name: "outdoorHasFans",
+      title: "Outdoor Has Fans",
+      type: "boolean",
+      group: "attributes",
+      initialValue: false,
     }),
     defineField({
       name: "vibe",
@@ -296,11 +427,11 @@ export const cafe = defineType({
       initialValue: false,
     }),
     defineField({
-      name: "hasOutlets",
-      title: "Has Outlets",
-      type: "boolean",
+      name: "outletAvailability",
+      title: "Outlet Availability",
+      type: "string",
       group: "attributes",
-      initialValue: false,
+      options: { list: OUTLET_LEVELS },
     }),
 
     // --- Content ---
@@ -360,6 +491,51 @@ export const cafe = defineType({
       type: "number",
       group: "content",
       validation: (rule) => rule.min(0).integer(),
+    }),
+
+    defineField({
+      name: "foodQualityRating",
+      title: "Food Quality Rating",
+      type: "number",
+      group: "content",
+      validation: (rule) => rule.min(1).max(5).precision(1),
+    }),
+    defineField({
+      name: "foodPresentationRating",
+      title: "Food Presentation Rating",
+      type: "number",
+      group: "content",
+      validation: (rule) => rule.min(1).max(5).precision(1),
+    }),
+    defineField({
+      name: "uniquenessRating",
+      title: "Uniqueness Rating",
+      type: "string",
+      group: "content",
+      options: { list: UNIQUENESS_LEVELS },
+    }),
+    defineField({
+      name: "uniqueTags",
+      title: "Unique Tags",
+      type: "array",
+      group: "content",
+      of: [{ type: "string" }],
+      options: { list: UNIQUE_TAGS },
+    }),
+    defineField({
+      name: "specialtyNote",
+      title: "Specialty Note",
+      type: "text",
+      group: "content",
+      rows: 3,
+    }),
+    defineField({
+      name: "dietaryTags",
+      title: "Dietary Tags",
+      type: "array",
+      group: "content",
+      of: [{ type: "string" }],
+      options: { list: DIETARY_TAGS },
     }),
 
     // --- Links & Extras ---

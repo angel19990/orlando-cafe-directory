@@ -16,15 +16,22 @@ function getPlaceholderSrc(id: string): string {
 }
 
 const TAG_LABELS: Record<string, string> = {
+  // New vibes
+  relaxing: "Relaxing",
+  cozy: "Cozy",
+  fancy: "Fancy",
+  chic: "Chic",
+  modern: "Modern",
+  retro: "Retro",
+  // Legacy vibes
   boho: "Boho",
   vintage: "Vintage",
   dark: "Dark",
-  modern: "Modern",
   minimal: "Minimal",
-  cozy: "Cozy",
   bright: "Bright",
   industrial: "Industrial",
   other: "Other",
+  // Specialties
   coffee: "Specialty",
   matcha: "Matcha",
   tea: "Tea",
