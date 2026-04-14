@@ -23,7 +23,7 @@ export function CafeHero({ cafe }: { cafe: CafeDetail }) {
 
       {/* Hero image */}
       <div className="content-container">
-        <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl bg-[#FCEEE3] sm:aspect-[16/7]">
+        <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-[#FCEEE3] sm:aspect-[4/3] md:aspect-[16/7]">
           {cafe.coverImage?.asset && (
             <Image
               src={urlFor(cafe.coverImage).width(1400).height(612).url()}
@@ -39,7 +39,7 @@ export function CafeHero({ cafe }: { cafe: CafeDetail }) {
 
           {/* Overlay content */}
           <div className="absolute bottom-0 left-0 p-8 md:p-12">
-            <h1 className="text-4xl font-bold text-white font-[family-name:var(--font-heading)] md:text-5xl">
+            <h1 className="text-3xl font-bold text-white font-[family-name:var(--font-heading)] sm:text-4xl md:text-5xl">
               {cafe.name}
             </h1>
 

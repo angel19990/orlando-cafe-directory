@@ -59,25 +59,27 @@ function EnvironmentGallery({ cafe }: { cafe: CafeDetail }) {
   const captions = ["Interior", "Exterior", "The Area"];
 
   return (
-    <div className="grid gap-4 sm:grid-cols-3">
-      {images.slice(0, 3).map((img, i) => (
-        <div key={i}>
-          <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] bg-[#FCEEE3]">
-            {img.asset && (
-              <Image
-                src={urlFor(img).width(500).height(375).url()}
-                alt={img.alt || `${cafe.name} ${captions[i]?.toLowerCase()}`}
-                fill
-                className="object-cover"
-                sizes="(max-width: 640px) 100vw, 33vw"
-              />
-            )}
+    <div className="-mx-6 md:-mx-12">
+      <div className="flex gap-4 overflow-x-auto px-6 pb-2 md:px-12 scroll-pl-6 md:scroll-pl-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden snap-x snap-mandatory">
+        {images.slice(0, 3).map((img, i) => (
+          <div key={i} className="w-[75vw] shrink-0 sm:w-[40vw] md:w-[30vw] snap-start">
+            <div className="relative aspect-[4/3] overflow-hidden rounded-[20px] bg-[#FCEEE3]">
+              {img.asset && (
+                <Image
+                  src={urlFor(img).width(500).height(375).url()}
+                  alt={img.alt || `${cafe.name} ${captions[i]?.toLowerCase()}`}
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 640px) 75vw, (max-width: 1024px) 40vw, 30vw"
+                />
+              )}
+            </div>
+            <p className="mt-2 text-sm text-muted-foreground">
+              {captions[i]}
+            </p>
           </div>
-          <p className="mt-2 text-sm text-muted-foreground">
-            {captions[i]}
-          </p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
